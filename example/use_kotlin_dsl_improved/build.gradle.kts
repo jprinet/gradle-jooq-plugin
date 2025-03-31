@@ -1,13 +1,10 @@
-import nu.studer.gradle.jooq.JooqEdition
-import org.jooq.meta.jaxb.Jdbc
-import org.jooq.meta.jaxb.Database
 import org.jooq.meta.jaxb.Logging
-import org.jooq.meta.jaxb.Property
-import org.jooq.meta.jaxb.ForcedType
-import org.jooq.util.jaxb.tools.XMLAppendable
+
+import org.jooq.meta.kotlin.*
+import nu.studer.gradle.jooq.*
 
 plugins {
-    id("nu.studer.jooq") version "10.0"
+    id("nu.studer.jooq") version "10.0.1-DEV"
     id("java")
 }
 
@@ -75,33 +72,4 @@ jooq {
             }
         }
     }
-}
-
-// allows to omit the apply() function when configuring the jOOQ configuration
-operator fun <T: XMLAppendable> T.invoke(block: T.() -> Unit) = this.apply(block)
-
-// allows to simplify the declaration of lists of jOOQ configuration elements, providing some examples
-// (taken from https://github.com/jOOQ/jOOQ/blob/main/jOOQ-meta-kotlin/src/main/kotlin/org/jooq/meta/kotlin/Extensions.kt)
-fun Jdbc.properties(block: MutableList<Property>.() -> Unit) {
-    block(properties)
-}
-
-fun Database.properties(block: MutableList<Property>.() -> Unit) {
-    block(properties)
-}
-
-fun MutableList<Property>.property(block: Property.() -> Unit) {
-    val e = Property()
-    block(e)
-    add(e)
-}
-
-fun Database.forcedTypes(block: MutableList<ForcedType>.() -> Unit) {
-    block(forcedTypes)
-}
-
-fun MutableList<ForcedType>.forcedType(block: ForcedType.() -> Unit) {
-    val f = ForcedType()
-    block(f)
-    add(f)
 }
