@@ -1,5 +1,4 @@
 import org.jooq.meta.kotlin.*
-import nu.studer.gradle.jooq.*
 
 plugins {
     id("nu.studer.jooq") version "10.0"

@@ -1,10 +1,10 @@
 import org.jooq.meta.jaxb.Logging
 
 import org.jooq.meta.kotlin.*
-import nu.studer.gradle.jooq.*
+import nu.studer.gradle.jooq.JooqEdition
 
 plugins {
-    id("nu.studer.jooq") version "10.0.1-DEV"
+    id("nu.studer.jooq") version "10.0"
     id("java")
 }
 
@@ -30,10 +30,6 @@ jooq {
                     user = "sa"
                     password = ""
                     properties {
-                        property {
-                            key = "PAGE_SIZE"
-                            value = "2048"
-                        }
                         property {
                             key = "PAGE_SIZE"
                             value = "2048"

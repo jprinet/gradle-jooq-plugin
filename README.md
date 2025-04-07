@@ -242,7 +242,6 @@ See the [Examples](#examples) section for complete, exemplary build scripts that
 ```kotlin
 import org.jooq.meta.jaxb.Logging
 import org.jooq.meta.kotlin.*
-import nu.studer.gradle.jooq.*
 
 jooq {
     version.set("3.20.2")  // default (can be omitted)
